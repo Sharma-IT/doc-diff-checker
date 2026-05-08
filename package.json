@@ -1,0 +1,33 @@
+{
+  "name": "doc-diff-checker",
+  "version": "0.1.0",
+  "description": "A CLI tool that shows plain text diffs between PDF and DOCX document files",
+  "type": "module",
+  "bin": {
+    "doc-diff-checker": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:mutation": "stryker run"
+  },
+  "keywords": ["diff", "pdf", "docx", "document", "comparison"],
+  "author": "Shubham Sharma",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^13.1.0",
+    "diff": "^7.0.0",
+    "mammoth": "^1.9.0",
+    "pdf-parse": "^1.1.1"
+  },
+  "devDependencies": {
+    "@stryker-mutator/core": "^8.7.1",
+    "@stryker-mutator/vitest-runner": "^8.7.1",
+    "@types/diff": "^7.0.2",
+    "@types/node": "^22.15.3",
+    "@types/pdf-parse": "^1.1.5",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.3"
+  }
+}
