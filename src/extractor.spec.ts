@@ -1,5 +1,8 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { extractText } from './extractor.js';
+import { readFile } from 'node:fs/promises';
+import pdfParse from 'pdf-parse';
+import { extractRawText } from 'mammoth';
 
 vi.mock('node:fs/promises', () => ({
   readFile: vi.fn(),
@@ -12,10 +15,6 @@ vi.mock('pdf-parse', () => ({
 vi.mock('mammoth', () => ({
   extractRawText: vi.fn(),
 }));
-
-import { readFile } from 'node:fs/promises';
-import pdfParse from 'pdf-parse';
-import { extractRawText } from 'mammoth';
 
 const mockedReadFile = vi.mocked(readFile);
 const mockedPdfParse = vi.mocked(pdfParse);

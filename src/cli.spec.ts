@@ -1,5 +1,8 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { run } from './cli.js';
+import { extractText } from './extractor.js';
+import { computeDiff } from './differ.js';
+import { writeFile } from 'node:fs/promises';
 
 vi.mock('./extractor.js', () => ({
   extractText: vi.fn(),
@@ -12,10 +15,6 @@ vi.mock('./differ.js', () => ({
 vi.mock('node:fs/promises', () => ({
   writeFile: vi.fn(),
 }));
-
-import { extractText } from './extractor.js';
-import { computeDiff } from './differ.js';
-import { writeFile } from 'node:fs/promises';
 
 const mockedExtractText = vi.mocked(extractText);
 const mockedComputeDiff = vi.mocked(computeDiff);
